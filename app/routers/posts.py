@@ -22,8 +22,6 @@ def get_posts(db: Session = Depends(get_db), current_user: models.User = Depends
         models.Vote, models.Vote.post_id == models.Post.id, isouter=True).group_by(models.Post.id).filter(
         models.Post.title.contains(search)).order_by(models.Post.id).limit(limit).all()
 
-    print(results)
-
     return results
 
 

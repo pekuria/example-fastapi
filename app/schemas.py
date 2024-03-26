@@ -41,7 +41,7 @@ class Post(PostBase):
 
 class PostOut(BaseModel):
     Post: Post
-    votes: int
+    votes:  Optional[int] = None
 
     class Config:
         from_attributes = True
