@@ -71,6 +71,8 @@ jobs:
   deploy:
     name: deploy code to EC2
     runs-on: ubuntu-latest
+    environment:
+      name: production
     needs: 
       - build
     steps: 
@@ -81,3 +83,4 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
+       
