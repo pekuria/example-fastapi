@@ -66,7 +66,7 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/fastapi:latest
-          cache-from: type=registry,ref=user/app:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/fastapi:latest
           cache-to: type=inline
   deploy:
     name: deploy code to EC2
